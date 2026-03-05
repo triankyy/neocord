@@ -796,10 +796,12 @@ function neocord:update_for_buffer(buffer, should_debounce)
   end
   local use_language_as_main_image = self.options.main_image == "language"
   local assets = {
-    large_image = use_language_as_main_image and utils.get_asset_url(icon) or logo,
-    large_text = use_language_as_main_image and file_text or distro_text,
-    small_image = use_language_as_main_image and logo or utils.get_asset_url(icon),
-    small_text = use_language_as_main_image and distro_text or file_text,
+    large_image = utils.get_asset_url(icon),
+    -- large_image = use_language_as_main_image and utils.get_asset_url(icon) or logo,
+    large_text = file_text,
+    -- large_text = use_language_as_main_image and file_text or distro_text,
+    -- small_image = use_language_as_main_image and logo or utils.get_asset_url(icon),
+    -- small_text = use_language_as_main_image and distro_text or file_text,
   }
 
   local buttons = self:get_buttons(buffer, parent_dirpath)
